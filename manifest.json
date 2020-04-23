@@ -1,0 +1,20 @@
+{
+
+    "manifest_version": 2,
+    "name": "Giphy Loader",
+    "version": "0.1",
+
+
+
+    "description": "Auto login zoom meeting by invitation url",
+    "background": {
+        "scripts": ["auto_zoom.js"],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_icon": "thor.jpg",
+        "default_popup": "auto_zoom.html"
+    }
+
+
+}
