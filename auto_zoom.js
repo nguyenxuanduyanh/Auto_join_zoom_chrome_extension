@@ -14,6 +14,8 @@ function createAlarm() {
         when: timestamp
     });
 }
+//begin
+console.log("Our extension has been loaded!");
 createAlarm();
 // Listen
 chrome.alarms.onAlarm.addListener(function(alarm) {
