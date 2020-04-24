@@ -1,12 +1,12 @@
 function createAlarm() {
     var now = new Date();
     var day = now.getDate();
-    if (now.getHours() >= 22) {
+    if (now.getHours() > 12) {
         // 3 AM already passed
         day += 1;
     }
     // '+' casts the date to a number, like [object Date].getTime();
-    var timestamp = +new Date(now.getFullYear(), now.getMonth(), day, 3, 0, 0, 0);
+    var timestamp = +new Date(now.getFullYear(), now.getMonth(), day, 12, 0, 0, 0);
     //                        YYYY               MM              DD  HH MM SS MS
 
     // Create
@@ -14,21 +14,17 @@ function createAlarm() {
         when: timestamp
     });
 }
-
+createAlarm();
 // Listen
 chrome.alarms.onAlarm.addListener(function(alarm) {
     if (alarm.name === 'Ready to go zoom') {
-        var url = 'https://dantri.com.vn/';
+        var url = 'https://us04web.zoom.us/j/8545732738';
         chrome.tabs.query({
             url: url
         }, function(tabs) {
-            if (tabs.length === 0) {
-                chrome.tabs.create({ url: url, active: true });
-            } else {
-                // Focus first match
-                chrome.tabs.update(tabs[0].id, { active: true });
-            }
+
+            chrome.tabs.create({ url: url, active: true });
+
         });
     }
 });
-createAlarm();

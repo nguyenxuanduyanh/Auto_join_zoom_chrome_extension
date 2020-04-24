@@ -1,10 +1,11 @@
 {
 
     "manifest_version": 2,
-    "name": "Giphy Loader",
+    "name": "Auto join zoom meeting",
     "version": "0.1",
 
 
+    "permissions": ["alarms"],
 
     "description": "Auto login zoom meeting by invitation url",
     "background": {
