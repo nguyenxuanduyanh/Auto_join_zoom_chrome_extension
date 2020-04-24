@@ -3,6 +3,7 @@
     "manifest_version": 2,
     "name": "Auto join zoom meeting",
     "version": "0.1",
+    "author": "Nguyen Xuan Duy Anh; Nguyen Duy Khoi",
 
 
     "permissions": ["alarms"],
