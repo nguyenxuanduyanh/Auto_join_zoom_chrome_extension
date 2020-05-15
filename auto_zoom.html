@@ -5,11 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DuyAnh-Khoi products</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
-    <h1>Auto Join Zoom Meeting</h1>
-    <script src="auto_zoom.js"></script>
+    <div class="chat-popup" id="myForm">
+        <img src="/robot.png" style="height: 45px;width: 45px" alt="">
+
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Please choose your room:</button>
+            <div id="myDropdown" class="dropdown-content">
+                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"><br>
+                <a href="#about">Khoi's room</a><br>
+                <a href="#base">DuyAnh's room</a><br>
+                <a href="#blog">Bach's room</a>
+
+            </div>
+        </div>
+    </div>
+    <script src="auto_zoom.js">
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        function filterFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

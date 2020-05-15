@@ -1,0 +1,17 @@
+.chat-popup {
+    align-items: center;
+    justify-content: center;
+}
+
+.dropbtn {
+    background-color: rgb(36, 53, 150);
+    color: white;
+    font-size: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #daeb42;
+}

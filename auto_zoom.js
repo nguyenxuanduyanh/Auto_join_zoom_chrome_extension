@@ -1,12 +1,12 @@
 function createAlarm() {
     var now = new Date();
     var day = now.getDate();
-    if (now.getHours() > 12) {
+    if (now.getHours() > 23) {
         // 3 AM already passed
         day += 1;
     }
     // '+' casts the date to a number, like [object Date].getTime();
-    var timestamp = +new Date(now.getFullYear(), now.getMonth(), day, 12, 0, 0, 0);
+    var timestamp = +new Date(now.getFullYear(), now.getMonth(), day, 23, 37, 0, 0);
     //                        YYYY               MM              DD  HH MM SS MS
 
     // Create
@@ -20,13 +20,10 @@ createAlarm();
 // Listen
 chrome.alarms.onAlarm.addListener(function(alarm) {
     if (alarm.name === 'Ready to go zoom') {
-        var url = 'https://us04web.zoom.us/j/8545732738';
-        chrome.tabs.query({
-            url: url
-        }, function(tabs) {
+        popW = 200;
+        popH = 200;
 
-            chrome.tabs.create({ url: url, active: true });
-
-        });
+        window.open('auto_zoom.html', 'popup', 'width=' + popW + ',height=' + popH + ', scrollbars=yes');
+        console.log('done')
     }
 });
